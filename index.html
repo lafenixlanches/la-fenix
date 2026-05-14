@@ -98,17 +98,37 @@
     }
 
     .card {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.card-destaque {
+  background: #111;
+  color: white;
+}
+
+.card-destaque .descricao {
+  color: #d6d6d6;
+}
+
+.card-destaque .btn-add {
+  background: #f5b700;
+  color: #111;
+}
+
+.card-destaque .preco {
+  color: white;
+}
     }
 
     .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: #ddd;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  background: #ddd;
     }
 
     .card-conteudo {
@@ -410,6 +430,50 @@
     const numeroWhatsApp = '5542935059067';
 
     const produtos = [
+	
+	{
+  id: 100,
+  nome: 'Combo Mais Vendido',
+  categoria: 'Mais Vendidos',
+  descricao: '5 X Saladas simples + porção de batata frita + refrigerante 1,5L.',
+  preco: 0,
+  imagem: 'combo5x.jpg'
+  
+  
+},
+
+{
+  id: 101,
+  nome: 'Combo X Salada',
+  categoria: 'Combos',
+  descricao: 'X Salada + refrigerante + porção de batata frita.',
+  preco: 0,
+  imagem: 'combo-xsalada.jpg'
+},
+{
+  id: 102,
+  nome: 'Combo X Tudo',
+  categoria: 'Combos',
+  descricao: 'X Tudo + refrigerante + porção de batata frita.',
+  preco: 0,
+  imagem: 'combo-xtudo.jpg'
+},
+{
+  id: 103,
+  nome: 'Combo X Burguer',
+  categoria: 'Combos',
+  descricao: 'X Burguer + refrigerante + porção de batata frita.',
+  preco: 0,
+  imagem: 'combo-xburguer.jpg'
+},
+{
+  id: 104,
+  nome: 'Combo X Bacon',
+  categoria: 'Combos',
+  descricao: 'X Bacon + refrigerante + porção de batata frita.',
+  preco: 0,
+  imagem: 'combo-xbacon.jpg'
+},
       {
         id: 1,
         nome: 'X Salada',
@@ -562,7 +626,7 @@
 
       filtrados.forEach(produto => {
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = produto.id === 100 ? 'card card-destaque' : 'card';
         card.innerHTML = `
           <img src="${produto.imagem}" alt="${produto.nome}">
           <div class="card-conteudo">
